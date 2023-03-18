@@ -1,0 +1,16 @@
+name: PR Opened
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  pr-opened:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Print pull request number
+        run: echo "PR number: ${{ github.event.pull_request.number }}"
