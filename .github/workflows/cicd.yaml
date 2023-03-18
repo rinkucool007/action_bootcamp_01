@@ -1,16 +1,17 @@
-name: PR Opened
+name: Read Secret
 
 on:
-  schedule:
-    - cron: '* * * * *'
+  push:
+    branches:
+      - master
 
 jobs:
-  pr-opened:
+  read-secret:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Print pull request number
-        run: echo "Hello World"
+      - name: Read secret
+        run: echo ${{ secrets.MY_SECRET }}
