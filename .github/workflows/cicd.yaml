@@ -4,7 +4,7 @@ on: push
 
 jobs:
   job1:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Job 1 Step 1
         run: echo "Job 1 Step 1"
@@ -12,7 +12,7 @@ jobs:
         run: echo "Job 1 Step 2"
 
   job2:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: job1
     steps:
       - name: Job 2 Step 1
@@ -21,7 +21,7 @@ jobs:
         run: echo "Job 2 Step 2"
 
   job3:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: job1
     steps:
       - name: Job 3 Step 1
