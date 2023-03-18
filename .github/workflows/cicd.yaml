@@ -1,30 +1,17 @@
-name: Parallel Jobs Example
+name: self-hosted
 
-on: push
+on:
+  push:
+    branches:
+      - master
 
 jobs:
-  job1:
+  pr-opened:
     runs-on: self-hosted
-    steps:
-      - name: Job 1 Step 1
-        run: echo "Job 1 Step 1"
-      - name: Job 1 Step 2
-        run: echo "Job 1 Step 2"
 
-  job2:
-    runs-on: self-hosted
-    needs: job1
     steps:
-      - name: Job 2 Step 1
-        run: echo "Job 2 Step 1"
-      - name: Job 2 Step 2
-        run: echo "Job 2 Step 2"
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-  job3:
-    runs-on: self-hosted
-    needs: job1
-    steps:
-      - name: Job 3 Step 1
-        run: echo "Job 3 Step 1"
-      - name: Job 3 Step 2
-        run: echo "Job 3 Step 2"
+      - name: Print pull request number
+        run: echo "PR number"
