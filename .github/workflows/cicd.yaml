@@ -1,8 +1,8 @@
 name: PR Opened
 
 on:
-  pull_request:
-    types: [opened]
+  schedule:
+    - cron: '* * * * *'
 
 jobs:
   pr-opened:
